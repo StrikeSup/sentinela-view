@@ -1,0 +1,11 @@
+PUBLICATION REVIEW — 2026-10-26
+Scope: newly assembled repository, no prior Git history imported.
+Includes: application source, Guardian frontend source, local adapters, model metadata, build instructions.
+Excludes: .env, deployment settings, real camera/DVR registrations, licenses, private keys, certificates, recordings, screenshots, logs, DLLs/executables, extracted DGuard visual assets.
+Removed embedded Supabase publishable JWT and deployment URL. Supabase service-role code reads environment only; no key included.
+Replaced fixed passwords in C# test fixtures with generated runtime passwords. Removed example CSV password.
+Scanned tracked text for private keys, credential-bearing URLs, GitHub tokens, JWTs, Supabase secret keys, known device serials and user path: zero matches.
+Remaining private IP literals are RFC1918 examples in ICE unit tests/comments, CSV example rows and catalog default reverseHost 192.168.0.0; no deployment camera configuration.
+Remaining local-cookie strings are non-authenticating adapter placeholders; actual authentication uses HttpOnly server cookie.
+Model catalog is device compatibility metadata, not user DVR configuration.
+Backend and frontend compilation passed on this workstation. External proprietary dependencies are excluded and documented.

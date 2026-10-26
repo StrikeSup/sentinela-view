@@ -1,0 +1,1 @@
+Adaptadores locais do Guardian. Consulte README.md na raiz para configuração, dependências e limitações atuais.

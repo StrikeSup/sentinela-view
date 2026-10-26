@@ -1,0 +1,8 @@
+Native layout bridge v1 — local only
+
+Guardian UI remains the original React frontend. Native video is enabled only by the Windows host's sentinelaNative capability, injected before document creation. Ordinary browsers retain the existing WebRTC component.
+Input: native-layout, viewportWidth/viewportHeight in CSS pixels, slots[{key,camera GUID,x,y,width,height,visible}]. Maximum 100 slots, 64KiB payload. Host accepts messages only from its exact loopback origin; camera URLs and credentials cannot be supplied by JavaScript.
+Host verifies the WebView's CenterSession cookie against existing GET /api/me every second. Missing/invalid session releases players. Only camera IDs from the local catalog can be opened. Credentials stay in native code.
+Output: native-status, slots[{key,fresh}]; native-pointer, key, kind (click/dblclick/contextmenu).
+Native surfaces follow viewport geometry, disappear behind dialogs/menus and on navigation, and are disposed when their React slots are removed. Native health reflects advancing displayed-picture counters.
+Known boundaries: administration still uses WebView as UI, video does not. Native slot does not yet implement every internal CameraAoVivo overlay/quality control. LibVLC remains independent from DGuard's proprietary drivers. Actual user-session UI/video interaction validation is required after login.
